@@ -5,7 +5,7 @@ class Recording extends CI_Controller{
 		parent::__construct(); 
 		$this->load->model('m_recording');
 	}  
-	function harian(){ 
+	function harian(){  
 		$data['title'] = 'Recording Harian'; 
  
 	    $this->load->view('v_template_admin/admin_header',$data);
@@ -222,12 +222,13 @@ class Recording extends CI_Controller{
 	function update($id){
 
 		$nomor = strip_tags(@$_POST['nomor']);
+		$tanaman = strip_tags(@$_POST['tanaman']);
 
 		$set = array(
 						'recording_user' => $this->session->userdata('id'),
 						'recording_tanggal' => strip_tags(@$_POST['tanggal']),
 						'recording_kebun' => strip_tags(@$_POST['kebun']),
-						'recording_tanaman' => strip_tags(@$_POST['tanaman']),
+						'recording_tanaman' => $tanaman,
 						'recording_suhu' => strip_tags(@$_POST['suhu']),
 						'recording_kondisi' => strip_tags(@$_POST['kondisi']),
 					);
@@ -246,7 +247,7 @@ class Recording extends CI_Controller{
 
 				for ($i = 0; $i < $panen; ++$i) {
 				
-					$this->query_builder->add('t_recording_barang', ['recording_barang_nomor' => $nomor, 'recording_barang_jumlah' => $_POST['panen'][$i], 'recording_barang_kategori' => $_POST['panen_kategori'][$i]]);
+					$this->query_builder->add('t_recording_barang', ['recording_barang_nomor' => $nomor, 'recording_barang_barang' => $tanaman, 'recording_barang_jumlah' => $_POST['panen'][$i], 'recording_barang_kategori' => $_POST['panen_kategori'][$i]]);
 				}				
 			}
 
@@ -287,8 +288,7 @@ class Recording extends CI_Controller{
 			}
 
 			//update stok
-			// $this->stok->update_kandang();
-			// $this->stok->update_barang();
+			$this->stok->update_barang();
 
 			$this->session->set_flashdata('success', 'Data berhasil di simpan');
 		}else{

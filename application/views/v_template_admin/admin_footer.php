@@ -287,7 +287,7 @@ function notif(){
     }, 100);
 }
 
-notif();
+//notif();
 
 function refresh(){
     location.reload();

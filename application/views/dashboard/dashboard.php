@@ -1,3 +1,5 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
 <style type="text/css">
   .box-style{
     background: white; 
@@ -223,9 +225,9 @@
                 <?php if ($filter == 2): ?>
 
                   //bulanan
-                  <?php for ($i=1; $i < 13; $i++):?>
+                  <?php foreach ($pembelian_data as $v): ?>
 
-                    <?php foreach ($pembelian_data as $v): ?>
+                    <?php for ($i=1; $i < 13; $i++):?>
                       
                       <?php if ($v['bulan'] == $i): ?>
                       
@@ -237,16 +239,16 @@
 
                       <?php endif ?>
 
-                    <?php endforeach ?>
+                    <?php endfor ?>
 
-                  <?php endfor ?>
+                  <?php endforeach ?>
 
                 <?php else: ?>
 
                   //harian
-                  <?php for ($i=1; $i < $hari + 1; $i++):?>
+                  <?php foreach ($pembelian_data as $v): ?>
 
-                    <?php foreach ($pembelian_data as $v): ?>
+                    <?php for ($i=1; $i < $hari + 1; $i++):?>
 
                       <?php if ($v['tanggal'] == $i): ?>
                       
@@ -258,9 +260,9 @@
 
                       <?php endif ?>
 
-                    <?php endforeach ?>
+                    <?php endfor ?>
 
-                  <?php endfor ?>
+                  <?php endforeach ?>
 
                 <?php endif ?>
 
@@ -274,9 +276,9 @@
                 <?php if ($filter == 2): ?>
 
                   //bulanan
-                  <?php for ($i=1; $i < 13; $i++):?>
+                  <?php foreach ($penjualan_data as $v): ?>
 
-                    <?php foreach ($penjualan_data as $v): ?>
+                    <?php for ($i=1; $i < 13; $i++):?>
                       
                       <?php if ($v['bulan'] == $i): ?>
                       
@@ -288,16 +290,16 @@
 
                       <?php endif ?>
 
-                    <?php endforeach ?>
+                    <?php endfor ?>
 
-                  <?php endfor ?>
+                  <?php endforeach ?>
 
                 <?php else: ?>
 
                   //harian
-                  <?php for ($i=1; $i < $hari + 1; $i++):?>
+                  <?php foreach ($penjualan_data as $v): ?>
 
-                    <?php foreach ($penjualan_data as $v): ?>
+                    <?php for ($i=1; $i < $hari + 1; $i++):?>
 
                       <?php if ($v['tanggal'] == $i): ?>
                       
@@ -309,9 +311,9 @@
 
                       <?php endif ?>
 
-                    <?php endforeach ?>
+                    <?php endfor ?>
 
-                  <?php endfor ?>
+                  <?php endforeach ?>
 
                 <?php endif ?>
 
@@ -325,10 +327,10 @@
                 <?php if ($filter == 2): ?>
 
                   //bulanan
-                  <?php for ($i=1; $i < 13; $i++):?>
+                  <?php foreach ($pengeluaran_data as $v): ?>
 
-                    <?php foreach ($pengeluaran_data as $v): ?>
-                      
+                    <?php for ($i=1; $i < 13; $i++):?>                      
+  
                       <?php if ($v['bulan'] == $i): ?>
                       
                         <?=$v['total'].','; ?>
@@ -339,16 +341,16 @@
 
                       <?php endif ?>
 
-                    <?php endforeach ?>
+                    <?php endfor ?>
 
-                  <?php endfor ?>
+                  <?php endforeach ?>
 
                 <?php else: ?>
 
                   //harian
-                  <?php for ($i=1; $i < $hari + 1; $i++):?>
-
-                    <?php foreach ($pengeluaran_data as $v): ?>
+                  <?php foreach ($pengeluaran_data as $v): ?>
+                    
+                    <?php for ($i=1; $i < $hari + 1; $i++):?>
 
                       <?php if ($v['tanggal'] == $i): ?>
                       
@@ -360,9 +362,9 @@
 
                       <?php endif ?>
 
-                    <?php endforeach ?>
+                    <?php endfor ?>
 
-                  <?php endfor ?>
+                  <?php endforeach ?>
 
                 <?php endif ?>
 

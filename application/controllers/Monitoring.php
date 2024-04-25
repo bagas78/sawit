@@ -1,6 +1,6 @@
 <?php
 class Monitoring extends CI_Controller{
-
+ 
 	function __construct(){
 		parent::__construct();
 		$this->load->model('m_recording_data');
@@ -41,6 +41,9 @@ class Monitoring extends CI_Controller{
 	    $this->load->view('v_template_admin/admin_header',$data);
 	    $this->load->view('monitoring/'.$kategori);
 	    $this->load->view('v_template_admin/admin_footer');
+
+		// echo '<pre>';
+	 //    print_r($data['grafik_data']);
 	}
 	function get_data($kategori, $filter){
 

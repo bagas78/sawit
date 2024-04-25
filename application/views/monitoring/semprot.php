@@ -150,9 +150,9 @@
         data: [
                 
                 //harian
-                <?php for ($i=1; $i < $hari + 1; $i++):?>
+                <?php foreach ($grafik_data as $v): ?>
 
-                  <?php foreach ($grafik_data as $v): ?>
+                  <?php for ($i=1; $i < $hari + 1; $i++):?>
 
                     <?php if ($v['tanggal'] == $i): ?>
                     
@@ -164,9 +164,9 @@
 
                     <?php endif ?>
 
-                  <?php endforeach ?>
+                  <?php endfor ?>
 
-                <?php endfor ?>
+                <?php endforeach ?>
 
               ],
         borderWidth: 1

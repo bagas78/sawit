@@ -16,8 +16,8 @@
                   <button type="submit" class="btn btn-primary">Cari <i class="fa fa-search"></i></button>
                 </div>
               </form>
-            </div>
-
+            </div> 
+ 
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
               <i class="fa fa-minus"></i></button>
@@ -36,7 +36,8 @@
             <thead>
             <tr>
               <th>Lokasi Panen</th>
-              <th>Biaya</th>
+              <th>Jumlah</th>
+              <th>Satuan</th>
               <th>Tanggal</th>
             </tr>
             </thead>
@@ -76,9 +77,10 @@
                         { "data": "recording_barang_jumlah",
                         "render": 
                         function( data ) {
-                            return 'Rp. '+number_format(data);
+                            return number_format(data);
                           }
                         },
+                        { "data": "satuan_singkatan"},
                         { "data": "recording_tanggal",
                         "render": 
                         function( data, type, row, meta ) {
@@ -146,9 +148,9 @@
         data: [
                 
                 //harian
-                <?php for ($i=1; $i < $hari + 1; $i++):?>
+                <?php foreach ($grafik_data as $v): ?>
 
-                  <?php foreach ($grafik_data as $v): ?>
+                  <?php for ($i=1; $i < $hari + 1; $i++):?>
 
                     <?php if ($v['tanggal'] == $i): ?>
                     
@@ -160,9 +162,9 @@
 
                     <?php endif ?>
 
-                  <?php endforeach ?>
+                  <?php endfor ?>
 
-                <?php endfor ?>
+                <?php endforeach ?>
 
               ],
         borderWidth: 1
